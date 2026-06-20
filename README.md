@@ -16,6 +16,7 @@ cd UniversityTasksDbFirstApi
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet tool update --global dotnet-ef
+dotnet add package Swashbuckle.AspNetCore
 ```
 4. Utwórz rozwiązanie
 ```bash
