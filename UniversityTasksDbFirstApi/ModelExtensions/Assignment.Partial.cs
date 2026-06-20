@@ -2,6 +2,6 @@
 {
     public partial class Assignment
     {
-        public bool IsOverdue(DateTime now) => DueDate < DateTime.Now;
+        public bool IsOverdue(DateTime now) => DueDate < now;
     }
 }
