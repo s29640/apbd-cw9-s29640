@@ -1,6 +1,105 @@
 @UniversityTasksDbFirstApi_HostAddress = http://localhost:5134
 
-GET {{UniversityTasksDbFirstApi_HostAddress}}/weatherforecast/
-Accept: application/json
+@host = https://localhost:7207
 
+### COURSES
+
+GET {{host}}/api/courses
+
+###
+
+GET {{host}}/api/courses?activeOnly=true
+
+### ASSIGNMENTS
+
+GET {{host}}/api/courses/1/assignments
+
+###
+
+GET {{host}}/api/courses/1/assignments?publishedOnly=true
+
+###
+
+GET {{host}}/api/courses/99999/assignments
+
+### =========================================
+### STUDENT DASHBOARD
+### =========================================
+
+GET {{host}}/api/students/1/dashboard
+
+###
+
+GET {{host}}/api/students/99999/dashboard
+
+### CREATE SUBMISSION
+
+POST {{host}}/api/submissions
+Content-Type: application/json
+
+{
+  "idAssignment": 4,
+  "idStudent": 1,
+  "repositoryUrl": "https://github.com/test/repo"
+}
+
+### CREATE SUBMISSION - DUPLICATE
+
+POST {{host}}/api/submissions
+Content-Type: application/json
+
+{
+  "idAssignment": 4,
+  "idStudent": 1,
+  "repositoryUrl": "https://github.com/test/repo"
+}
+
+### CREATE SUBMISSION - INVALID URL
+
+POST {{host}}/api/submissions
+Content-Type: application/json
+
+{
+  "idAssignment": 4,
+  "idStudent": 1,
+  "repositoryUrl": "repo"
+}
+
+### GRADE SUBMISSION
+
+PUT {{host}}/api/submissions/1/grade
+Content-Type: application/json
+
+{
+  "points": 80,
+  "comment": "Good work"
+}
+
+### GRADE SUBMISSION - TOO MANY POINTS
+
+PUT {{host}}/api/submissions/14/grade
+Content-Type: application/json
+
+{
+  "points": 999,
+  "comment": "Invalid score"
+}
+
+### GRADE SUBMISSION - NOT FOUND
+
+PUT {{host}}/api/submissions/99999/grade
+Content-Type: application/json
+
+{
+  "points": 50,
+  "comment": "Test"
+}
+
+### DELETE SUBMISSION
+
+DELETE {{host}}/api/submissions/1
+
+### DELETE SUBMISSION - NOT FOUND
+
+DELETE {{host}}/api/submissions/99999
 ###
