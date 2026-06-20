@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ModelExtensions\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
