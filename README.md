@@ -48,3 +48,10 @@ dotnet run
 ## Testowanie
 
 Wejdź na stronę: https://localhost:7207/swagger
+
+## ponowne uruchomieni scafold
+
+```bash
+cd UniversityTasksDbFirstApi
+dotnet ef dbcontext scaffold "Server=localhost,1433;Database=ApbdLecture9DbFirstTask;Trusted_Connection=True;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer --context UniversityTasksDbContext --context-dir Data --output-dir Models --no-onconfiguring --force
+```
